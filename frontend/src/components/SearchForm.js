@@ -154,7 +154,10 @@ const SearchForm = ({ setResultsDataHandler }) => {
       {isLoading && (
         <div>
           Waiting for the results... It might take up to 20seconds due to the
-          server waking up.
+          server waking up. This is a demo for portfolio. How many words can you
+          read in 20 seconds? An old silent pond A frog jumps into the pond —
+          Splash! Silence again. I hope by that time the data has been loaded.
+          Thank you for your patience! Have a great day!
         </div>
       )}
     </Fragment>
