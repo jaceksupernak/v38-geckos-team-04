@@ -1,13 +1,13 @@
-@import "../abstract/variables.scss";
-@import "../abstract/mixins.scss";
+@import '../abstract/variables.scss';
+@import '../abstract/mixins.scss';
 
 .heading-radio {
-    color: $persian-indigo !important;
-    margin-bottom: 1rem;
+  color: $persian-indigo !important;
+  margin-bottom: 1rem;
 }
 
 .search-form {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 .text-input-container {
@@ -15,21 +15,22 @@
   position: relative;
 }
 
-label[for="name"] {
-    display: none;
+label[for='name'] {
+  display: none;
 }
 
-input[id="name"]{
-    height: 5rem;
-    width:100%;
-    border-radius: 30px;
-    padding: 1rem 1rem 1rem 5rem;
-    border: 1px solid rgb(195, 195, 195);
-    &:active, &:focus {
-        outline: none;
-        box-shadow: 0px 0px 20px $mauve;
-        border: 1px solid $mauve;
-    }
+input[id='name'] {
+  height: 5rem;
+  width: 100%;
+  border-radius: 30px;
+  padding: 1rem 1rem 1rem 5rem;
+  border: 1px solid rgb(195, 195, 195);
+  &:active,
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 20px $mauve;
+    border: 1px solid $mauve;
+  }
 }
 
 .search-icon {
@@ -42,13 +43,13 @@ input[id="name"]{
 }
 
 .radio-bar-container {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
 
-    @include breakpoint(47.5em) {
-      flex-direction: row;
-   }
+  @include breakpoint(47.5em) {
+    flex-direction: row;
+  }
 }
 
 .radio-choice-container {
@@ -58,29 +59,29 @@ input[id="name"]{
   color: rgb(74, 74, 74);
 }
 
-input[type="radio"] {
-    display: none;
-    ~ label {
-      cursor: pointer;
-    }
+input[type='radio'] {
+  display: none;
+  ~ label {
+    cursor: pointer;
+  }
 }
 
 label {
-    height: 100%;
-    display: block;
-    border: 1px solid rgb(195, 195, 195);
-    border-radius: 2rem;
-    padding: 1rem 1rem 2rem 1rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    position: relative;
+  height: 100%;
+  display: block;
+  border: 1px solid rgb(195, 195, 195);
+  border-radius: 2rem;
+  padding: 1rem 1rem 2rem 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
 }
 
-input[type="radio"] + label {
+input[type='radio'] + label {
   &::after {
     background-color: white;
     border: 2px solid rgb(195, 195, 195);
-    content: "";
+    content: '';
     position: absolute;
     bottom: -2.6rem;
     left: 50%;
@@ -91,20 +92,104 @@ input[type="radio"] + label {
   }
 }
 
-input[type="radio"]:checked + label {
-    background: $amethyst;
-    border: 1px solid $amethyst;
-    color: hsla(215, 0%, 100%, 1) ;
-    &::after {
-      background-color: $amethyst;
-      color: hsla(215, 5%, 25%, 1);
-      border: 2px solid $amethyst;
-      bottom: -2.1rem;
-      transform: translateX(-50%);
-      height: 4rem;
-      width: 4rem;
-      border-radius: 50%;
-      box-shadow: 0px 0px 0px 3px white, 0px 0px 0px 5px $amethyst;
-    }  
+input[type='radio']:checked + label {
+  background: $amethyst;
+  border: 1px solid $amethyst;
+  color: hsla(215, 0%, 100%, 1);
+  &::after {
+    background-color: $amethyst;
+    color: hsla(215, 5%, 25%, 1);
+    border: 2px solid $amethyst;
+    bottom: -2.1rem;
+    transform: translateX(-50%);
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 3px white, 0px 0px 0px 5px $amethyst;
+  }
 }
 
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #3d0039;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
