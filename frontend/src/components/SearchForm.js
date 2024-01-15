@@ -1,7 +1,7 @@
-import { Fragment, useState, useEffect } from 'react'
-import '../sass/components/searchform.scss'
-import '../sass/base/typography.scss'
-import icon from '../assets/search-icon.png'
+import { Fragment, useState, useEffect } from 'react';
+import '../sass/components/searchform.scss';
+import '../sass/base/typography.scss';
+import icon from '../assets/search-icon.png';
 
 // Mocked data to work on before the fetch function is created. To be removed.
 //
@@ -51,37 +51,32 @@ import icon from '../assets/search-icon.png'
 // ]
 
 const SearchForm = ({ setResultsDataHandler }) => {
-  const [radioDifficulty, setRadioDifficulty] = useState('beginner')
+  const [radioDifficulty, setRadioDifficulty] = useState('beginner');
+  const [isLoading, setIsLoading] = useState(false);
 
   const difficultyHandler = (value) => {
-    setRadioDifficulty(value)
-  }
+    setRadioDifficulty(value);
+  };
 
   useEffect(() => {
-    const userSelect = { name: radioDifficulty }
+    setIsLoading(true); // Start loading
+    const userSelect = { name: radioDifficulty };
 
     fetch('https://develapp.onrender.com/api', {
-      // set the method to post
       method: 'POST',
-      // convert the payload object to json
       body: JSON.stringify(userSelect),
-      // inform server that it is receiving json document
       headers: { 'Content-Type': 'application/json' },
     })
-      .then((response) => {
-        // convert server response to json
-        return response.json()
-      })
+      .then((response) => response.json())
       .then((result) => {
-        // call set state function (setResult) passed to this component
-        // as props to update resultsData in Main component with the
-        // result of the fetch
-        setResultsDataHandler(result)
+        setResultsDataHandler(result);
+        setIsLoading(false); // Stop loading
       })
       .catch((error) => {
-        console.warn(error.message, 'failed!')
-      })
-  }, [radioDifficulty, setResultsDataHandler])
+        console.warn(error.message, 'failed!');
+        setIsLoading(false); // Stop loading
+      });
+  }, [radioDifficulty, setResultsDataHandler]);
 
   return (
     <Fragment>
@@ -156,8 +151,14 @@ const SearchForm = ({ setResultsDataHandler }) => {
           </div>
         </div>
       </div>
+      {isLoading && (
+        <div>
+          Waiting for the results... It might take up to 20seconds due to the
+          server waking up.
+        </div>
+      )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default SearchForm
+export default SearchForm;
